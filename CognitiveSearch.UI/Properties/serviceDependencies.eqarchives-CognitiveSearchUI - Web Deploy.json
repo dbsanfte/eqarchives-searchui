@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "storage1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/eqarchives",
+      "type": "storage.azure",
+      "connectionId": "eqarchives-string",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
