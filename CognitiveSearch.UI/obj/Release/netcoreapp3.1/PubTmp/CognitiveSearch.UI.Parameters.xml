@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="eqarchives" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\David\\Source\\Repos\\azure-search-knowledge-mining\\02\ -\ Web\ UI\ Template\\CognitiveSearch\.UI\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
-  </parameter>
-</parameters>
