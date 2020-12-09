@@ -354,6 +354,7 @@ function GetMetadataHTML(result) {
                                 if (constructedUrl.includes("castersrealm")) {
                                     constructedUrl = constructedUrl.replaceAll("_and_", "&");
                                     constructedUrl = constructedUrl.replaceAll(".asp_", ".asp?");
+                                    constructedUrl = constructedUrl.replaceAll(".ASP_", ".ASP?");
                                 }
 
                                 metadataContainerHTML += '<tr><td class="key"  style="width:50%" >' + "wayback_machine_link" + '</td><td class="wrapword"  style="width:50%" >' + '<a href="' + constructedUrl + '" target="_blank">' + constructedUrl + '</a>' + '</td></tr>';

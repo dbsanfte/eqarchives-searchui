@@ -237,6 +237,18 @@ function UpdateResults(data) {
             path = document.metadata_storage_path + token;
         }
 
+        var websiteDomain = "";
+        if (path.includes("/websites/")) {
+            websiteDomain = path.replace("https://eqarchives.blob.core.windows.net/eq-archives/websites/", "");
+            websiteDomain = websiteDomain.split("/")[0];
+        }
+
+        var emailListName = "";
+        if (path.includes("/mailing-lists/")) {
+            emailListName = path.replace("https://eqarchives.blob.core.windows.net/eq-archives/mailing-lists/", "");
+            emailListName = emailListName.split("/")[0];
+        }
+
         if (document["metadata_storage_name"] !== undefined) {
             name = document.metadata_storage_name.split(".")[0];
         }
@@ -246,7 +258,15 @@ function UpdateResults(data) {
         }
         else {
             // Bring up the name to the top
-            title = name;
+            if (emailListName !== "") {
+                title = name + " (" + emailListName + ")";
+            }
+            else if (websiteDomain !== "") {
+                title = name + " (" + websiteDomain + ")";
+            }
+            else {
+                title = name;
+            }
             name = "";
         }
 
@@ -307,6 +327,8 @@ function UpdateResults(data) {
             // Strip HTML from the search preview so it doesn't mess up the page:
             var stripRegex = /(<([^>]+)>)/ig;
             var sanitizedContent = content ? content.replace(stripRegex, "") : "";
+            var sanitizedContent = sanitizedContent.replace("<a ", " ");
+            var sanitizedContent = sanitizedContent.replace("</a>", " ");
             var contentPreview = content ? `<p class="max-lines">${sanitizedContent}</p>` : "";
 
             resultsHtml += `<div id="resultdiv${i}" class="${classList}" onclick="ShowDocument('${id}');">
